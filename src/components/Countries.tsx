@@ -1,15 +1,11 @@
-"use client";
+"use client"
 import React from "react";
-import { useQuery } from "react-query";
-import axios from "axios";
+
 import Image from "next/image";
 import Link from "next/link";
+import useFetch from "@/hooks/useFetch";
 const Countries = () => {
-  const { data, isLoading } = useQuery(["country"], () => {
-    return axios
-      .get("https://restcountries.com/v3.1/all")
-      .then((res) => res?.data);
-  });
+  const [data, isLoading] = useFetch();
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen  w-full bg-DarkBg ">
