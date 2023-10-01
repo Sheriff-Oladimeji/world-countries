@@ -1,6 +1,8 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
-import { QueryClient, QueryClientProvider } from "react-query";
+import QueryProvider from "@/components/QueryProvider";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,14 +14,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const client = new QueryClient();
+  
   return (
-    <html lang="en">
-      <body className="flex flex-col min-h-[100vh] justify-between bg-LightBg dark:bg-DarkBg">
-        <QueryClientProvider client={client}>
+    <QueryProvider>
+      <html lang="en">
+        <body className="flex flex-col min-h-[100vh] justify-between bg-LightBg dark:bg-DarkBg">
+          <Navbar />
           {children}
-        </QueryClientProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </QueryProvider>
   );
 }
