@@ -1,9 +1,10 @@
-import Image from 'next/image'
+import Countries from '@/components/Countries'
+
 
 export default function Home() {
   return (
-    <section>
-      hello
+    <section className=' '>
+      <Countries/>
   </section>
   )
 }
