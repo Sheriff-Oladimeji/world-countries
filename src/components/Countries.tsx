@@ -31,7 +31,7 @@ const Countries = () => {
           </div>
           <div
             className="
-          flex flex-col gap-4  mx-auto py-4 bg-DarkText dark:bg-DarkElem dark:text-DarkText px-4 text-LightText "
+          flex flex-col gap-4  mx-auto py-4 bg-DarkText dark:bg-DarkElem dark:text-DarkText px-6 text-LightText "
           >
             <h4 className="font-extrabold text-xl">{country.name.common}</h4>
             <p>
