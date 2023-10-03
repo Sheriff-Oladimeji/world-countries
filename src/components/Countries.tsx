@@ -3,9 +3,9 @@ import React from "react";
 
 import Image from "next/image";
 import Link from "next/link";
-import useFetch from "@/hooks/useFetch";
+import { useFetchCountries } from "@/hooks/useFetch";
 const Countries = () => {
-  const [data, isLoading] = useFetch();
+  const [data, isLoading] = useFetchCountries();
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen  w-full bg-DarkBg ">
@@ -17,7 +17,7 @@ const Countries = () => {
     <main className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 xl:grid-cols-4 w-[90%] mx-auto my-12">
       {data?.map((country) => (
         <Link
-          href={`/countries/${country.name.common}`}
+          href={`/countries/${country.cca2}`}
           key={country.name.common}
           className=" rounded-md shadow-xl w-full"
         >
@@ -46,6 +46,7 @@ const Countries = () => {
               <span className="font-bold">Capital: </span>
               {country.capital}
             </p>
+            <p>{country.cca2}</p>
           </div>
         </Link>
       ))}
