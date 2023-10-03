@@ -19,9 +19,11 @@ const Navbar = () => {
        setDarkMode((prevMode) => !prevMode);
      };
   return (
-    <nav className="w-full text-LightText dark:text-DarkText h-[70px] shadow-md bg-white dark:bg-DarkElem">
+    <nav className="w-full dark:text-LightText text-DarkText h-[70px] shadow-md dark:bg-white bg-DarkElem">
       <div className="flex justify-between items-center w-[90%] mx-auto h-full ">
-        <h4 className="font-extrabold  text-lg md:text-xl ">Where in the world?</h4>
+        <h4 className="font-extrabold  text-lg md:text-xl ">
+          Where in the world?
+        </h4>
 
         <button onClick={toggleDarkMode} className="flex items-center gap-2">
           {darkMode ? <BsMoonFill /> : <BsMoon />}

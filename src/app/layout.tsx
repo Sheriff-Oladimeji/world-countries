@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <QueryProvider>
       <html lang="en">
-        <body className="flex flex-col min-h-[100vh] justify-between bg-LightBg dark:bg-DarkBg">
+        <body className="flex flex-col min-h-[100vh] justify-between dark:bg-LightBg bg-DarkBg">
           <Navbar />
           {children}
         </body>
