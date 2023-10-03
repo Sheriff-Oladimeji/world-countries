@@ -1,9 +1,22 @@
 "use client"
+
 import React from "react";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useFetchCountries } from "@/hooks/useFetch";
+interface Country {
+  name: {
+    common: string;
+  };
+  population: number;
+  region: string;
+  capital: string;
+  cca2: string;
+  flags: {
+    png: string;
+  };
+}
 const Countries = () => {
   const [data, isLoading] = useFetchCountries();
   if (isLoading) {
@@ -15,7 +28,7 @@ const Countries = () => {
   }
   return (
     <main className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 xl:grid-cols-4 w-[90%] mx-auto my-12">
-      {data?.map((country) => (
+      {data?.map((country: Country) => (
         <Link
           href={`/countries/${country.cca2}`}
           key={country.name.common}

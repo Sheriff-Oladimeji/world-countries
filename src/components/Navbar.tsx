@@ -3,17 +3,15 @@ import React, {useState, useEffect} from "react";
 import { BsMoon, BsMoonFill } from "react-icons/bs";
 
 const Navbar = () => {
-     const [darkMode, setDarkMode] = useState(false);
+       const [darkMode, setDarkMode] = useState(false);
 
-     useEffect(() => {
-       const isDarkMode = localStorage.getItem("darkMode") === "true";
-       setDarkMode(isDarkMode);
-     }, []);
-
-     useEffect(() => {
-       document.documentElement.classList.toggle("dark", darkMode);
-       localStorage.setItem("darkMode", darkMode);
-     }, [darkMode]);
+       useEffect(() => {
+         if (darkMode) {
+           document.documentElement.classList.add("dark");
+         } else {
+           document.documentElement.classList.remove("dark");
+         }
+       }, [darkMode]);
 
      const toggleDarkMode = () => {
        setDarkMode((prevMode) => !prevMode);
@@ -25,9 +23,17 @@ const Navbar = () => {
           Where in the world?
         </h4>
 
-        <button onClick={toggleDarkMode} className="flex items-center gap-2">
-          {darkMode ? <BsMoonFill /> : <BsMoon />}
-          Dark Mode
+        <button onClick={toggleDarkMode} className="border-none">
+          {!darkMode ? (
+            <span className="flex gap-2 items-center">
+              <BsMoonFill /> Light Mode
+            </span>
+          ) : (
+            <span className="flex gap-2 items-center">
+              <BsMoon />
+              Dark Mode
+            </span>
+          )}
         </button>
       </div>
     </nav>
