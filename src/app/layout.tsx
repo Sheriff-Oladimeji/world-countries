@@ -16,13 +16,13 @@ export default function RootLayout({
 }) {
   
   return (
-    <QueryProvider>
-      <html lang="en">
-        <body className="flex flex-col min-h-[100vh] justify-between dark:bg-LightBg bg-DarkBg">
+    <html lang="en">
+      <body className="flex flex-col min-h-[100vh] justify-between dark:bg-LightBg bg-DarkBg">
+        <QueryProvider>
           <Navbar />
           {children}
-        </body>
-      </html>
-    </QueryProvider>
+        </QueryProvider>
+      </body>
+    </html>
   );
 }
